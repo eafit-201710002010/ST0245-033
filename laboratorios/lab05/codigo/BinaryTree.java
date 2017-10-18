@@ -125,31 +125,96 @@ public class BinaryTree {
     
     public static void main(String args[]){
         BinaryTree tree = new BinaryTree();
-        Node yo = new Node("Isabela");
+        Node isabela = new Node("Isabela");
         Node mama = new Node("Nora");
         Node papa = new Node("Mauricio");
         Node abuelaP = new Node("Ines");
+        Node BabuelaPM = new Node("Rosa María");
+        Node BabueloPM = new Node("Gabriel");
         Node abueloP = new Node("Bernardo");
+        Node BabuelaPP = new Node("Teresa");
+        Node BabueloPP = new Node("Martín");
         Node abuelaM = new Node("Socorro");
+        Node BabuelaMM = new Node("Rosa María ");
+        Node BabueloMM = new Node("Pedro Rafael");
         Node abueloM = new Node("Miguel");
+        Node BabuelaMP = new Node("Carmen");
+        Node BabueloMP = new Node("");
         
-        tree.insertar(yo.data, "mujer"); 
+        tree.insertar(isabela.data, "mujer"); 
         tree.insertar(mama.data, "mujer"); 
         tree.insertar(papa.data, "Hombre");
         
         tree.insertar(tree.root.right, abuelaP.data, "mujer");
+        tree.insertar(tree.root.right.left, BabuelaPM.data, "Mujer");
+        tree.insertar(tree.root.right.left, BabueloPM.data, "Hombre");
+        
         tree.insertar(tree.root.right, abueloP.data, "hombre");
+        tree.insertar(tree.root.right.right, BabuelaPP.data, "Mujer");
+        tree.insertar(tree.root.right.right, BabueloPP.data, "hombre");
         
         tree.insertar(tree.root.left, abuelaM.data, "mujer");
-        tree.insertar(tree.root.left, abueloM.data, "Hombre");
+        tree.insertar(tree.root.left.left, BabuelaMM.data, "Mujer");
+        tree.insertar(tree.root.left.left, BabueloMM.data, "Hombre");
         
+        tree.insertar(tree.root.left, abueloM.data, "Hombre");
+        tree.insertar(tree.root.left.right, BabuelaMP.data, "Mujer");
+        tree.insertar(tree.root.left.right, BabueloMP.data, "Hombre");
+        
+        System.out.println("Árbol 1: \n");
         Laboratorio5.dibujarArbol(tree);
+        
+        BinaryTree tree2 = new BinaryTree();
+        Node mateo = new Node("Mateo");
+        Node mama2 = new Node("Gloria");
+        Node papa2 = new Node("Raúl");
+        Node abuelaP2 = new Node("Olga");
+        Node BabuelaPM2 = new Node("");
+        Node BabueloPM2 = new Node(" ");
+        Node abueloP2 = new Node("José Raúl");
+        Node BabuelaPP2 = new Node("   ");
+        Node BabueloPP2 = new Node("José");
+        Node abuelaM2 = new Node("Ofelia");
+        Node BabuelaMM2 = new Node("Candelaria");
+        Node BabueloMM2 = new Node("Joaquín");
+        Node abueloM2 = new Node("Enrique");
+        Node BabuelaMP2 = new Node("Raquel");
+        Node BabueloMP2 = new Node("Carlos");
+        
+        tree2.insertar(mateo.data, "Hombre"); 
+        tree2.insertar(mama2.data, "mujer"); 
+        tree2.insertar(papa2.data, "Hombre");
+        
+        tree2.insertar(tree2.root.right, abuelaP2.data, "mujer");
+        tree2.insertar(tree2.root.right.left, BabuelaPM2.data, "Mujer");
+        tree2.insertar(tree2.root.right.left, BabueloPM2.data, "Hombre");
+        
+        tree2.insertar(tree2.root.right, abueloP2.data, "hombre");
+        tree2.insertar(tree2.root.right.right, BabuelaPP2.data, "Mujer");
+        tree2.insertar(tree2.root.right.right, BabueloPP2.data, "hombre");
+        
+        tree2.insertar(tree2.root.left, abuelaM2.data, "mujer");
+        tree2.insertar(tree2.root.left.left, BabuelaMM2.data, "Mujer");
+        tree2.insertar(tree2.root.left.left, BabueloMM2.data, "Hombre");
+        
+        tree2.insertar(tree2.root.left, abueloM2.data, "Hombre");
+        tree2.insertar(tree2.root.left.right, BabuelaMP2.data, "Mujer");
+        tree2.insertar(tree2.root.left.right, BabueloMP2.data, "Hombre");
+        
+        System.out.println("\nÁrbol 2: \n");
+        Laboratorio5.dibujarArbol(tree2);
         //1.2
-        System.out.println("Altura: " + tree. maxheight());
+        System.out.println("Altura árbol 1: " + tree. maxheight());
         System.out.println(tree.buscar("Ines"));
         System.out.println(tree.buscar("Camilo"));
         System.out.println(tree.buscar("Mauricio"));
+        
+        System.out.println("Altura árbol 2: " + tree2. maxheight());
+        System.out.println(tree2.buscar("Ofelia"));
+        System.out.println(tree2.buscar("Raúl"));
+        System.out.println(tree2.buscar("Laura"));
         //1.3
-        System.out.println("Abuela materna de " + yo.data + ": " + tree.getGrandMothersName(yo.data));
+        System.out.println("Abuela materna de " + isabela.data + ": " + tree.getGrandMothersName(isabela.data));
+        System.out.println("Abuela materna de " + mateo.data + ": " + tree2.getGrandMothersName(mateo.data));
     }
 }
